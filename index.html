@@ -2,35 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>सोचको उडान | Sochko Udaan Chronicles</title>
+  <title>Sochko Udaan Chronicles</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Empowering the Nepali Diaspora through storytelling, science, and community." />
-  
+  <meta name="description" content="Stories, projects, and gentle tools for the Nepali diaspora — built at the intersection of science, migration, and memory." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet" />
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      /* Brand Colors based on your Logo */
-      --brand-blue: #4a8bc2; /* The blue from the Udaan text/plane */
-      --brand-red: #DC143C;  /* Nepali Crimson */
+      --brand-blue: #4a8bc2;
+      --brand-red: #DC143C;
       --navy: #0F172A;
       --bg-gradient: radial-gradient(circle at top left, #f0f9ff, #eef2ff);
-      
-      /* Glassmorphism Variables */
+
       --glass-bg: rgba(255, 255, 255, 0.85);
       --glass-border: rgba(255, 255, 255, 0.6);
       --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-      
+
       --max-width: 1100px;
       --radius: 24px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -43,7 +41,7 @@
 
     .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
 
-    /* --- Prayer Flags Top Bar --- */
+    /* Prayer Flags Top Bar */
     .prayer-flags {
       display: flex;
       height: 6px;
@@ -59,7 +57,7 @@
     .f-green { background: #00A651; }
     .f-yellow { background: #FFD100; }
 
-    /* --- Header --- */
+    /* Header */
     header {
       position: sticky;
       top: 20px;
@@ -73,7 +71,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
-      border-radius: 50px; /* Pill shape for modern look */
+      border-radius: 50px;
       box-shadow: var(--glass-shadow);
       display: flex;
       justify-content: space-between;
@@ -89,11 +87,10 @@
       align-items: center;
     }
 
-    /* MAGIC TRICK: Blends the white jpg background into the header */
     .logo-img {
       height: 100%;
       width: auto;
-      mix-blend-mode: multiply; 
+      mix-blend-mode: multiply;
       filter: contrast(1.1);
     }
 
@@ -113,7 +110,7 @@
 
     nav a:hover { color: var(--brand-blue); }
 
-    /* --- Hero Section --- */
+    /* Hero */
     .hero {
       padding: 6rem 1.5rem 4rem;
       max-width: var(--max-width);
@@ -123,29 +120,41 @@
 
     .hero-content {
       text-align: center;
-      max-width: 800px;
+      max-width: 780px;
       margin: 0 auto;
       z-index: 10;
       position: relative;
     }
 
+    .hero-tagline {
+      color: #64748b;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-size: clamp(2.4rem, 5.4vw, 3.9rem);
       font-weight: 800;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       background: linear-gradient(135deg, var(--navy) 0%, var(--brand-blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       color: #64748b;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.3rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* --- Animated Paper Plane --- */
+    /* Animated Plane */
     .plane-container {
       position: absolute;
       top: 20%;
@@ -157,7 +166,7 @@
       z-index: 1;
       pointer-events: none;
     }
-    
+
     .plane-svg {
       width: 100%;
       height: 100%;
@@ -170,7 +179,7 @@
       100% { transform: translate(110vw, -200px) rotate(45deg); opacity: 0; }
     }
 
-    /* --- Buttons --- */
+    /* Buttons */
     .btn-main {
       background: var(--brand-blue);
       color: white;
@@ -183,6 +192,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-main:hover {
@@ -190,7 +201,28 @@
       box-shadow: 0 15px 35px rgba(74, 139, 194, 0.5);
     }
 
-    /* Audio visualizer effect */
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.7rem 1.6rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brand-blue);
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--navy);
+    }
+
+    /* Audio Bars */
     .audio-bars {
       display: flex;
       gap: 3px;
@@ -206,16 +238,26 @@
     .bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
     .bar:nth-child(2) { height: 100%; animation-delay: 0.2s; }
     .bar:nth-child(3) { height: 50%; animation-delay: 0.3s; }
-    
+
     @keyframes bounce {
       0%, 100% { height: 40%; }
       50% { height: 100%; }
     }
 
-    /* --- Engineer's Grid / Initiatives --- */
+    /* Section Layouts */
+    section { scroll-margin-top: 90px; }
+
+    .section-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Blueprint / Grid Background */
     .section-grid-bg {
-      /* Blueprint effect */
-      background-image: linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+      background-image:
+        linear-gradient(#e2e8f0 1px, transparent 1px),
+        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
       background-size: 40px 40px;
       padding: 4rem 1.5rem;
       margin-top: 3rem;
@@ -259,7 +301,33 @@
       display: block;
     }
 
-    /* --- Form --- */
+    .card-subtext {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .pill-status {
+      font-size: 0.8rem;
+      color: var(--brand-red);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pill-status.blue {
+      color: var(--brand-blue);
+    }
+
+    /* Form */
     input, textarea {
       width: 100%;
       padding: 1rem;
@@ -270,12 +338,13 @@
       font-family: inherit;
       transition: border-color 0.2s;
     }
+
     input:focus, textarea:focus {
       outline: none;
       border-color: var(--brand-blue);
     }
 
-    /* --- Footer --- */
+    /* Footer */
     footer {
       background: var(--navy);
       color: white;
@@ -284,14 +353,14 @@
       text-align: center;
       position: relative;
     }
-    /* Nepali Dhaka Pattern CSS Strip */
+
     .dhaka-strip {
       height: 12px;
       width: 100%;
       position: absolute;
       top: 0;
       left: 0;
-      background-image: 
+      background-image:
         repeating-linear-gradient(45deg, var(--brand-red) 25%, transparent 25%, transparent 75%, var(--brand-red) 75%, var(--brand-red)),
         repeating-linear-gradient(45deg, var(--brand-red) 25%, #222 25%, #222 75%, var(--brand-red) 75%, var(--brand-red));
       background-position: 0 0, 10px 10px;
@@ -300,13 +369,22 @@
     }
 
     @media (max-width: 768px) {
-      .glass-nav { flex-direction: column; gap: 1rem; padding: 1rem; border-radius: 24px; }
+      .glass-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 24px;
+      }
       .hero { padding-top: 4rem; }
+      .glass-card.about-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Prayer Flags -->
   <div class="prayer-flags">
     <div class="flag f-blue"></div>
     <div class="flag f-white"></div>
@@ -315,6 +393,7 @@
     <div class="flag f-yellow"></div>
   </div>
 
+  <!-- Header -->
   <header>
     <div class="glass-nav">
       <div class="logo-container">
@@ -323,13 +402,14 @@
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#initiatives">Initiatives</a></li>
+          <li><a href="#initiatives">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="plane-container">
       <svg class="plane-svg" viewBox="0 0 24 24">
@@ -338,19 +418,22 @@
     </div>
 
     <div class="hero-content">
-      <div style="color: var(--brand-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem; text-transform: uppercase;">
-        Est. 2024 • USA & Nepal
+      <div class="hero-tagline">
+        Est. 2024 • Between Nepal & the United States
       </div>
       <h1>
-        Building Bridges with <br>
-        <span class="devanagari">विज्ञान र विश्वास</span>
+        Quiet stories. Brave science.<br/>
+        A gentle home for the Nepali diaspora.
       </h1>
       <p class="hero-subtitle">
-        A platform by a Biomedical Engineer for the Nepali Diaspora. <br>
-        Connecting students, professionals, and dreamers.
+        Sochko Udaan is a living notebook — of migrations and return journeys, of
+        hospitals and hostel rooms, of water pumps and whispered dreams. Here we
+        build tools, tell stories, and make it a little easier to belong in two worlds at once.
       </p>
-      
-      <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730" target="_blank" class="btn-main">
+
+      <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
+         target="_blank"
+         class="btn-main">
         <div class="audio-bars">
           <div class="bar"></div>
           <div class="bar"></div>
@@ -358,102 +441,189 @@
         </div>
         Listen to the Podcast
       </a>
-      
+
       <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
-        <i class="fa-brands fa-spotify" style="color:#1DB954;"></i> New episodes every Friday
+        <i class="fa-brands fa-spotify" style="color:#1DB954;"></i>
+        New conversations on most Fridays — when life allows.
       </div>
     </div>
   </section>
 
-  <section id="about" style="max-width: var(--max-width); margin: 2rem auto; padding: 0 1.5rem;">
-    <div class="glass-card" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
+  <!-- About -->
+  <section id="about" class="section-shell" style="margin: 2rem auto 0;">
+    <div class="glass-card about-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
       <div style="border-radius: 16px; overflow: hidden; background: #ddd; aspect-ratio: 1/1;">
-        <img src="https://ui-avatars.com/api/?name=Neeraj+Mishra&background=0F172A&color=fff&size=400" alt="Neeraj Mishra" style="width:100%; height:100%; object-fit: cover;">
+        <img src="https://ui-avatars.com/api/?name=Neeraj+Mishra&background=0F172A&color=fff&size=400"
+             alt="Neeraj Mishra"
+             style="width:100%; height:100%; object-fit: cover;">
       </div>
-      
+
       <div>
-        <h2 class="devanagari" style="font-size: 2rem; margin-bottom: 1rem; color: var(--navy);">नमस्ते, I'm Neeraj.</h2>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--navy);">
+          Namaste, I’m Neeraj.
+        </h2>
         <p style="margin-bottom: 1rem; color: #475569;">
-          I arrived in the US as a student, navigating a new culture while holding onto my roots. Today, as a <strong>Biomedical Engineer</strong>, I apply scientific precision to solve problems, but my heart remains with community building.
+          I arrived in the United States with a single suitcase and a head full of questions:
+          how do you honour the soil you come from while learning to breathe in a new sky?
+          I trained as a <strong>Biomedical Engineer</strong>, but my work has always lived at the
+          edge of community, care, and design.
         </p>
-        <p style="color: #475569;">
-          <strong>Sochko Udaan</strong> isn't just a podcast; it's an engineering project for the soul. We are designing tools to help Nepali students succeed abroad and developing hygiene infrastructure for rural Nepal.
+        <p style="margin-bottom: 1rem; color: #475569;">
+          <strong>Sochko Udaan</strong> holds the pieces together — a podcast for scattered hearts,
+          a set of projects for schools and hospitals back home, and a quiet space for Nepali
+          students and professionals who are still figuring it out (like me).
+        </p>
+        <p style="font-size: 0.9rem; color:#94a3b8;">
+          If you’ve ever felt “in between” — between passports, languages, careers, or versions of
+          yourself — you’re in the right place.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="initiatives" style="max-width: var(--max-width); margin: 0 auto;">
+  <!-- Initiatives -->
+  <section id="initiatives" class="section-shell" style="margin: 0 auto;">
     <div class="section-grid-bg">
       <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 class="devanagari" style="font-size: 2.2rem; color: var(--navy);">Our Projects / परियोजना</h2>
-        <p>Engineering solutions for community problems.</p>
+        <h2 style="font-size: 2.2rem; color: var(--navy); margin-bottom: 0.5rem;">
+          Projects in Flight
+        </h2>
+        <p style="color:#64748b; max-width: 520px; margin: 0 auto;">
+          Not just ideas on paper — these are living experiments in care:
+          media, infrastructure, and software braided together for Nepali communities at home and abroad.
+        </p>
       </div>
 
       <div class="card-grid">
+        <!-- Podcast -->
         <div class="glass-card">
           <span class="tag">Media</span>
-          <h3 class="devanagari" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Sochko Udaan Podcast</h3>
-          <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem;">
-            Documenting the journeys of the Nepali Diaspora. From student struggles to professional triumphs.
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">
+            Sochko Udaan Podcast
+          </h3>
+          <p class="card-subtext">
+            Long-form conversations with students, professionals, and quiet heroes of the Nepali
+            diaspora. We talk visas and vulnerability, failure and faith, research and restless hearts.
           </p>
-          <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730" class="btn-main" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
-            <i class="fa-solid fa-play"></i> Listen
-          </a>
+          <div class="card-footer-row">
+            <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
+               class="btn-main"
+               style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+              <i class="fa-solid fa-play"></i> Listen
+            </a>
+            <span class="pill-status blue">
+              <i class="fa-solid fa-wifi"></i> Ongoing series
+            </span>
+          </div>
         </div>
 
+        <!-- WASH & MHM Hub -->
         <div class="glass-card">
           <span class="tag">Infrastructure</span>
-          <h3 class="devanagari" style="font-size: 1.4rem; margin-bottom: 0.5rem;">WASH & MHM Hub</h3>
-          <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem;">
-            A technical needs assessment to build solar-powered water & hygiene stations in the Terai region.
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">
+            Solar-Powered WASH & Menstrual Hygiene Hub
+          </h3>
+          <p class="card-subtext">
+            A school-based water and hygiene hub for Nepal’s Terai region — clean drinking water,
+            safe menstrual products, and dignified restrooms designed with girls at the centre.
+            Built in partnership with local schools, engineers, and community leaders.
           </p>
-          <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: 600;">
-            <i class="fa-solid fa-circle-notch fa-spin"></i> Research Phase
+
+          <div class="card-footer-row" style="margin-bottom: 0.9rem;">
+            <span class="pill-status">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>
+              Partner & site selection phase
+            </span>
           </div>
+
+          <div class="card-footer-row">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHg3ciuGojSFGdbtixxSrw3bV2ksWAtQiusI3cS8D_Gd_s9Q/viewform"
+               target="_blank"
+               class="btn-main"
+               style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+              School Interest Form
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJkTjPhhP8sZeHlbjklYlcJW_7jEVIazODtx2hlsxELULpvw/viewform"
+               target="_blank"
+               class="btn-ghost">
+              Baseline Audit Form
+            </a>
+          </div>
+
+          <p style="margin-top: 1rem; font-size: 0.8rem; color:#94a3b8;">
+            If you represent a public school in the Terai and would like to explore a pilot,
+            these forms help us understand your context before any promises are made.
+          </p>
         </div>
 
+        <!-- Hospital App & Network -->
         <div class="glass-card">
           <span class="tag">Software</span>
-          <h3 class="devanagari" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Hospital App & Network</h3>
-          <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem;">
-            Developing two apps: One for Kathmandu hospital appointments and one for global student networking.
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">
+            Hospital App & Student Network
+          </h3>
+          <p class="card-subtext">
+            Two sibling tools: a hospital-facing app to make appointments and medication
+            management less painful in Kathmandu; and a quiet network for Nepali students
+            navigating studies, visas, and work abroad.
           </p>
-           <div style="font-size: 0.8rem; color: var(--brand-blue); font-weight: 600;">
-            <i class="fa-solid fa-code"></i> In Development
+
+          <div class="card-footer-row">
+            <span class="pill-status blue">
+              <i class="fa-solid fa-code"></i>
+              In early design & prototyping
+            </span>
           </div>
+          <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;">
+            If you&apos;re a clinician, hospital admin, or student who wants to co-design this with us,
+            reach out through the contact form below.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" style="max-width: 600px; margin: 5rem auto; padding: 0 1.5rem;">
     <div class="glass-card" style="border-color: var(--brand-blue);">
-      <h2 class="devanagari" style="text-align: center; margin-bottom: 0.5rem;">सम्पर्क (Contact)</h2>
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">
+        Contact
+      </h2>
       <p style="text-align: center; margin-bottom: 2rem; color: #64748b;">
-        Collaborate with us or share your story.
+        Share your story, propose a collaboration, or simply say hello.
+        Every thoughtful message is read with care.
       </p>
 
       <form action="mailto:mniraj501@gmail.com" method="post" enctype="text/plain">
         <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Name</label>
-        <input type="text" name="Name" required placeholder="Your Name">
-        
+        <input type="text" name="Name" required placeholder="Your name">
+
         <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Email</label>
-        <input type="email" name="Email" required placeholder="your@email.com">
-        
+        <input type="email" name="Email" required placeholder="you@example.com">
+
         <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Message</label>
-        <textarea name="Message" rows="5" required placeholder="Namaste Neeraj..."></textarea>
-        
-        <button type="submit" class="btn-main" style="width: 100%; justify-content: center;">Send Message</button>
+        <textarea name="Message" rows="5" required placeholder="Tell me a little about you, your journey, or the project you have in mind."></textarea>
+
+        <button type="submit" class="btn-main" style="width: 100%; justify-content: center;">
+          Send Message
+        </button>
       </form>
+
+      <p style="margin-top: 1rem; font-size: 0.75rem; color:#94a3b8; text-align:center;">
+        Note: this sends as a simple email. For school pilots, please use the project forms above first.
+      </p>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="dhaka-strip"></div>
-    <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">सोचको उडान</h3>
+    <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">
+      सोचको उडान
+    </h3>
     <p style="opacity: 0.8; max-width: 500px; margin: 0 auto 2rem;">
-      Blending biomedical engineering precision with the warmth of Nepali hospitality.
+      Blending biomedical engineering precision with the softness of Nepali hospitality —
+      for students, schools, and scattered hearts across oceans.
     </p>
     <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem;">
       <a href="#" style="color: white; font-size: 1.5rem;"><i class="fa-brands fa-facebook"></i></a>
