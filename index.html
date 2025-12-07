@@ -17,6 +17,7 @@
       --brand-blue: #4a8bc2;
       --brand-red: #DC143C;
       --navy: #0F172A;
+      --heading-color: #111827; /* softer, modern heading color */
       --bg-gradient: radial-gradient(circle at top left, #f0f9ff, #eef2ff);
 
       --glass-bg: rgba(255, 255, 255, 0.88);
@@ -57,6 +58,11 @@
     .fade-section.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Global heading color */
+    h2, h3 {
+      color: var(--heading-color);
     }
 
     /* Prayer Flags */
@@ -145,12 +151,12 @@
     }
 
     .hero-tagline {
-      color: #64748b;
-      font-size: 0.8rem;
+      color: #475569;
+      font-size: 1rem;      /* bigger tagline */
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
     }
 
     .hero h1 {
@@ -268,7 +274,6 @@
       padding: 0 1.5rem;
     }
 
-    /* Glass section wrapper (for Initiations) */
     .section-grid-bg {
       background: var(--glass-bg);
       backdrop-filter: blur(18px);
@@ -382,7 +387,6 @@
       opacity: 0.9;
     }
 
-    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -505,7 +509,7 @@
       </div>
 
       <div>
-        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--navy);"
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;"
             data-copy="ABOUT_HEADING"></h2>
 
         <p style="margin-bottom: 1rem; color: #475569;"
@@ -520,7 +524,7 @@
   <section id="initiatives" class="section-shell" style="margin: 0 auto;">
     <div class="section-grid-bg fade-section">
       <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-size: 2.2rem; color: var(--navy); margin-bottom: 0.5rem;"
+        <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;"
             data-copy="PROJECTS_SECTION_TITLE"></h2>
         <p style="color:#64748b; max-width: 520px; margin: 0 auto;"
            data-copy="PROJECTS_SECTION_SUBTEXT"></p>
@@ -642,7 +646,8 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    fetch('copy.en.json?v=6')
+    // bump the v number if you change copy.en.json again
+    fetch('copy.en.json?v=7')
       .then(r => r.json())
       .then(copy => {
         document.querySelectorAll('[data-copy]').forEach(el => {
