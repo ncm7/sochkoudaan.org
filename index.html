@@ -37,9 +37,29 @@
       color: var(--navy);
       line-height: 1.7;
       overflow-x: hidden;
+
+      /* Page fade-in */
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    body.page-loaded {
+      opacity: 1;
     }
 
     .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
+
+    /* Simple fade-in for sections */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Prayer Flags Top Bar */
     .prayer-flags {
@@ -87,6 +107,7 @@
       align-items: center;
     }
 
+    /* Updated to match your file name */
     .logo-img {
       height: 100%;
       width: auto;
@@ -154,7 +175,7 @@
       margin-right: auto;
     }
 
-    /* Animated Plane */
+    /* Plane animation */
     .plane-container {
       position: absolute;
       top: 20%;
@@ -167,219 +188,12 @@
       pointer-events: none;
     }
 
-    .plane-svg {
-      width: 100%;
-      height: 100%;
-      fill: var(--brand-blue);
-    }
-
     @keyframes flyPlane {
       0% { transform: translate(0, 0) rotate(15deg); opacity: 0; }
       10% { opacity: 0.8; }
       100% { transform: translate(110vw, -200px) rotate(45deg); opacity: 0; }
     }
 
-    /* Buttons */
-    .btn-main {
-      background: var(--brand-blue);
-      color: white;
-      padding: 1rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 10px 25px rgba(74, 139, 194, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-main:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(74, 139, 194, 0.5);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.7rem 1.6rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: #475569;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, background 0.2s, color 0.2s;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--brand-blue);
-      background: rgba(148, 163, 184, 0.08);
-      color: var(--navy);
-    }
-
-    /* Audio Bars */
-    .audio-bars {
-      display: flex;
-      gap: 3px;
-      align-items: center;
-      height: 15px;
-    }
-    .bar {
-      width: 3px;
-      background: white;
-      border-radius: 2px;
-      animation: bounce 1s infinite ease-in-out;
-    }
-    .bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
-    .bar:nth-child(2) { height: 100%; animation-delay: 0.2s; }
-    .bar:nth-child(3) { height: 50%; animation-delay: 0.3s; }
-
-    @keyframes bounce {
-      0%, 100% { height: 40%; }
-      50% { height: 100%; }
-    }
-
-    /* Section Layouts */
-    section { scroll-margin-top: 90px; }
-
-    .section-shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Blueprint / Grid Background */
-    .section-grid-bg {
-      background-image:
-        linear-gradient(#e2e8f0 1px, transparent 1px),
-        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
-      background-size: 40px 40px;
-      padding: 4rem 1.5rem;
-      margin-top: 3rem;
-      border-radius: var(--radius);
-      border: 1px solid white;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: var(--max-width);
-      margin: 2rem auto 0;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid white;
-      padding: 2rem;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      border-color: var(--brand-blue);
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      color: var(--brand-blue);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .card-subtext {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .pill-status {
-      font-size: 0.8rem;
-      color: var(--brand-red);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .pill-status.blue {
-      color: var(--brand-blue);
-    }
-
-    /* Form */
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.9);
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--brand-blue);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--navy);
-      color: white;
-      margin-top: 5rem;
-      padding: 4rem 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .dhaka-strip {
-      height: 12px;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image:
-        repeating-linear-gradient(45deg, var(--brand-red) 25%, transparent 25%, transparent 75%, var(--brand-red) 75%, var(--brand-red)),
-        repeating-linear-gradient(45deg, var(--brand-red) 25%, #222 25%, #222 75%, var(--brand-red) 75%, var(--brand-red));
-      background-position: 0 0, 10px 10px;
-      background-size: 20px 20px;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      .glass-nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        border-radius: 24px;
-      }
-      .hero { padding-top: 4rem; }
-      .glass-card.about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
@@ -395,10 +209,10 @@
 
   <!-- Header -->
   <header>
-    <div class="glass-nav">
+    <div class="glass-nav fade-section">
       <div class="logo-container">
-        <!-- Update this filename to your actual logo file -->
-        <img src="sochko-udaan-logo.png" alt="Sochko Udaan Logo" class="logo-img">
+        <!-- Updated logo file name -->
+        <img src="sochko-udan-logo.jpg" alt="Sochko Udaan Logo" class="logo-img">
       </div>
       <nav>
         <ul>
@@ -418,11 +232,9 @@
       </svg>
     </div>
 
-    <div class="hero-content">
+    <div class="hero-content fade-section">
       <div class="hero-tagline" data-copy="HERO_TAGLINE"></div>
-
       <h1 data-copy="HERO_TITLE"></h1>
-
       <p class="hero-subtitle" data-copy="HERO_SUBTITLE"></p>
 
       <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
@@ -435,206 +247,122 @@
         </div>
         Listen to the Podcast
       </a>
-
-      <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
-        <i class="fa-brands fa-spotify" style="color:#1DB954;"></i>
-        New conversations on most Fridays — when life allows.
-      </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="section-shell" style="margin: 2rem auto 0;">
-    <div class="glass-card about-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
+  <section id="about" class="section-shell">
+    <div class="glass-card about-grid fade-section" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
       <div style="border-radius: 16px; overflow: hidden; background: #ddd; aspect-ratio: 1/1;">
-        <!-- Update to your own photo filename -->
-        <img src="neeraj.jpg" alt="Neeraj Mishra"
-             style="width:100%; height:100%; object-fit: cover;">
+        <img src="neeraj.jpg" alt="Neeraj Mishra" style="width:100%; height:100%; object-fit: cover;">
       </div>
 
       <div>
-        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--navy);"
-            data-copy="ABOUT_HEADING"></h2>
-
-        <p style="margin-bottom: 1rem; color: #475569;"
-           data-copy="ABOUT_PARAGRAPH_MAIN"></p>
-
-        <p style="font-size: 0.9rem; color:#94a3b8; margin-top: 0.5rem;"
-           data-copy="ABOUT_SIGNATURE"></p>
+        <h2 data-copy="ABOUT_HEADING"></h2>
+        <p data-copy="ABOUT_PARAGRAPH_MAIN"></p>
+        <p data-copy="ABOUT_SIGNATURE" style="opacity:0.7;"></p>
       </div>
     </div>
   </section>
 
   <!-- Initiatives -->
-  <section id="initiatives" class="section-shell" style="margin: 0 auto;">
+  <section id="initiatives" class="section-shell fade-section">
     <div class="section-grid-bg">
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-size: 2.2rem; color: var(--navy); margin-bottom: 0.5rem;"
-            data-copy="PROJECTS_SECTION_TITLE"></h2>
-        <p style="color:#64748b; max-width: 520px; margin: 0 auto;"
-           data-copy="PROJECTS_SECTION_SUBTEXT"></p>
-      </div>
+      <h2 data-copy="PROJECTS_SECTION_TITLE"></h2>
+      <p data-copy="PROJECTS_SECTION_SUBTEXT"></p>
 
       <div class="card-grid">
-        <!-- Podcast -->
-        <div class="glass-card">
+
+        <div class="glass-card fade-section">
           <span class="tag">Media</span>
-          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-              data-copy="PODCAST_TITLE"></h3>
+          <h3 data-copy="PODCAST_TITLE"></h3>
           <p class="card-subtext" data-copy="PODCAST_BODY"></p>
-          <div class="card-footer-row">
-            <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
-               class="btn-main"
-               style="padding: 0.5rem 1rem; font-size: 0.85rem;">
-              <i class="fa-solid fa-play"></i> Listen
-            </a>
-            <span class="pill-status blue">
-              <i class="fa-solid fa-wifi"></i> Ongoing series
-            </span>
-          </div>
         </div>
 
-        <!-- WASH & MHM Hub -->
-        <div class="glass-card">
+        <div class="glass-card fade-section">
           <span class="tag">Infrastructure</span>
-          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-              data-copy="WASH_TITLE"></h3>
+          <h3 data-copy="WASH_TITLE"></h3>
           <p class="card-subtext" data-copy="WASH_BODY"></p>
 
-          <div class="card-footer-row" style="margin-bottom: 0.9rem;">
-            <span class="pill-status">
-              <i class="fa-solid fa-circle-notch fa-spin"></i>
-              Partner & site selection phase
-            </span>
-          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHg3ciuGojSFGdbtixxSrw3bV2ksWAtQiusI3cS8D_Gd_s9Q/viewform" target="_blank" class="btn-main" style="margin-right:5px;">School Interest Form</a>
 
-          <div class="card-footer-row">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHg3ciuGojSFGdbtixxSrw3bV2ksWAtQiusI3cS8D_Gd_s9Q/viewform"
-               target="_blank"
-               class="btn-main"
-               style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
-              School Interest Form
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJkTjPhhP8sZeHlbjklYlcJW_7jEVIazODtx2hlsxELULpvw/viewform"
-               target="_blank"
-               class="btn-ghost">
-              Baseline Audit Form
-            </a>
-          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJkTjPhhP8sZeHlbjklYlcJW_7jEVIazODtx2hlsxELULpvw/viewform" target="_blank" class="btn-ghost">Baseline Audit Form</a>
 
-          <p style="margin-top: 1rem; font-size: 0.8rem; color:#94a3b8;"
-             data-copy="WASH_NOTE"></p>
+          <p data-copy="WASH_NOTE" style="margin-top: 1rem; font-size: 0.8rem; color:#94a3b8;"></p>
         </div>
 
-        <!-- Hospital App & Network -->
-        <div class="glass-card">
+        <div class="glass-card fade-section">
           <span class="tag">Software</span>
-          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-              data-copy="APP_TITLE"></h3>
+          <h3 data-copy="APP_TITLE"></h3>
           <p class="card-subtext" data-copy="APP_BODY"></p>
-
-          <div class="card-footer-row">
-            <span class="pill-status blue">
-              <i class="fa-solid fa-code"></i>
-              In early design & prototyping
-            </span>
-          </div>
-          <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;">
-            If you&apos;re a clinician, hospital admin, or student who wants to co-design this with us,
-            reach out through the contact form below.
-          </p>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" style="max-width: 600px; margin: 5rem auto; padding: 0 1.5rem;">
-    <div class="glass-card" style="border-color: var(--brand-blue);">
-      <h2 style="text-align: center; margin-bottom: 0.5rem;"
-          data-copy="CONTACT_HEADING"></h2>
-      <p style="text-align: center; margin-bottom: 2rem; color: #64748b;"
-         data-copy="CONTACT_SUBTEXT"></p>
+  <section id="contact" style="max-width: 600px; margin: 5rem auto;">
+    <div class="glass-card fade-section">
+      <h2 data-copy="CONTACT_HEADING"></h2>
+      <p data-copy="CONTACT_SUBTEXT"></p>
 
-      <form action="mailto:mniraj501@gmail.com" method="post" enctype="text/plain">
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Name</label>
-        <input type="text" name="Name" required placeholder="Your name">
+      <!-- Updated with your Formspree backend -->
+      <form action="https://formspree.io/f/mkgdzdjw" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required>
 
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Email</label>
-        <input type="email" name="Email" required placeholder="you@example.com">
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Message</label>
-        <textarea name="Message" rows="5" required placeholder="Tell me a little about you, your journey, or the project you have in mind."></textarea>
+        <label>Message</label>
+        <textarea name="message" rows="5" required></textarea>
 
-        <button type="submit" class="btn-main" style="width: 100%; justify-content: center;">
-          Send Message
-        </button>
+        <input type="hidden" name="_subject" value="New Message - Sochko Udaan Website">
+
+        <button type="submit" class="btn-main" style="width: 100%;">Send Message</button>
       </form>
 
-      <p style="margin-top: 1rem; font-size: 0.75rem; color:#94a3b8; text-align:center;"
-         data-copy="CONTACT_NOTE"></p>
+      <p data-copy="CONTACT_NOTE" style="margin-top: 1rem; opacity:0.7;"></p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="dhaka-strip"></div>
-    <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">
-      सोचको उडान
-    </h3>
-    <p style="opacity: 0.8; max-width: 500px; margin: 0 auto 2rem;"
-       data-copy="FOOTER_TAGLINE"></p>
-    <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem;">
-      <a href="#" style="color: white; font-size: 1.5rem;"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#" style="color: white; font-size: 1.5rem;"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" style="color: white; font-size: 1.5rem;"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <p style="font-size: 0.8rem; opacity: 0.6;">
-      © <span id="year"></span> Sochko Udaan Chronicles. All rights reserved.
-    </p>
+    <h3 class="devanagari">सोचको उडान</h3>
+    <p data-copy="FOOTER_TAGLINE"></p>
+    <p style="opacity:0.6;">© <span id="year"></span> Sochko Udaan Chronicles. All rights reserved.</p>
   </footer>
 
   <script>
-    // Set footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Load copy.en.json and inject into elements with data-copy
-    fetch('copy.en.json')
-      .then(function (res) { return res.json(); })
-      .then(function (copy) {
-        document.querySelectorAll('[data-copy]').forEach(function (el) {
-          var key = el.getAttribute('data-copy');
-          if (copy[key]) {
-            el.innerHTML = copy[key]; // allow simple HTML like <br>
-          }
+    // Load copy.en.json
+    fetch('copy.en.json?v=4')
+      .then(r => r.json())
+      .then(copy => {
+        document.querySelectorAll('[data-copy]').forEach(el => {
+          el.innerHTML = copy[el.dataset.copy] || "";
         });
-      })
-      .catch(function (err) {
-        console.error('Error loading copy.en.json', err);
       });
-  </script>
-<script>
-  // Set footer year
-  document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Load copy.en.json and inject into elements with data-copy
-  fetch('copy.en.json?v=3')
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (copy) {
-      document.querySelectorAll('[data-copy]').forEach(function (el) {
-        var key = el.getAttribute('data-copy');
-        if (copy[key]) {
-          // allow simple HTML like <br> in content
-          el.innerHTML = copy[key];
+    // Fade-in transitions
+    window.addEventListener('load', () => {
+      document.body.classList.add('page-loaded');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    })
-    .catch(function (err) {
-      console.error('Error loading copy.en.json', err);
-    });
-</script>
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
