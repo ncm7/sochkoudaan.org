@@ -19,9 +19,9 @@
       --navy: #0F172A;
       --bg-gradient: radial-gradient(circle at top left, #f0f9ff, #eef2ff);
 
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.6);
-      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      --glass-bg: rgba(255, 255, 255, 0.88);
+      --glass-border: rgba(255, 255, 255, 0.7);
+      --glass-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 
       --max-width: 1100px;
       --radius: 24px;
@@ -38,7 +38,6 @@
       line-height: 1.7;
       overflow-x: hidden;
 
-      /* Page fade-in */
       opacity: 0;
       transition: opacity 0.6s ease;
     }
@@ -49,7 +48,6 @@
 
     .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
 
-    /* Simple fade-in for sections */
     .fade-section {
       opacity: 0;
       transform: translateY(20px);
@@ -61,7 +59,7 @@
       transform: translateY(0);
     }
 
-    /* Prayer Flags Top Bar */
+    /* Prayer Flags */
     .prayer-flags {
       display: flex;
       height: 6px;
@@ -174,7 +172,6 @@
       margin-right: auto;
     }
 
-    /* Animated Plane */
     .plane-container {
       position: absolute;
       top: 20%;
@@ -242,7 +239,6 @@
       color: var(--navy);
     }
 
-    /* Audio Bars */
     .audio-bars {
       display: flex;
       gap: 3px;
@@ -264,7 +260,6 @@
       50% { height: 100%; }
     }
 
-    /* Section Layouts */
     section { scroll-margin-top: 90px; }
 
     .section-shell {
@@ -273,16 +268,16 @@
       padding: 0 1.5rem;
     }
 
-    /* Blueprint / Grid Background */
+    /* Glass section wrapper (for Initiations) */
     .section-grid-bg {
-      background-image:
-        linear-gradient(#e2e8f0 1px, transparent 1px),
-        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
-      background-size: 40px 40px;
-      padding: 4rem 1.5rem;
-      margin-top: 3rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-radius: var(--radius);
-      border: 1px solid white;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      padding: 3rem 2rem;
+      margin-top: 3rem;
     }
 
     .card-grid {
@@ -294,20 +289,21 @@
     }
 
     .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid white;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
       padding: 2rem;
       border-radius: 20px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
     }
 
     .glass-card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
       border-color: var(--brand-blue);
     }
 
@@ -347,7 +343,6 @@
       color: var(--brand-blue);
     }
 
-    /* Form */
     input, textarea {
       width: 100%;
       padding: 1rem;
@@ -364,7 +359,6 @@
       border-color: var(--brand-blue);
     }
 
-    /* Footer */
     footer {
       background: var(--navy);
       color: white;
@@ -388,7 +382,7 @@
       opacity: 0.9;
     }
 
-    /* Toast notification */
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -435,6 +429,9 @@
       .glass-card.about-grid {
         grid-template-columns: 1fr;
       }
+      .section-grid-bg {
+        padding: 2.5rem 1.5rem;
+      }
       .toast {
         left: 16px;
         right: 16px;
@@ -447,7 +444,6 @@
 </head>
 <body>
 
-  <!-- Prayer Flags -->
   <div class="prayer-flags">
     <div class="flag f-blue"></div>
     <div class="flag f-white"></div>
@@ -456,7 +452,6 @@
     <div class="flag f-yellow"></div>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="glass-nav fade-section">
       <div class="logo-container">
@@ -472,7 +467,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="plane-container">
       <svg class="plane-svg" viewBox="0 0 24 24">
@@ -503,7 +497,6 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about" class="section-shell" style="margin: 2rem auto 0;">
     <div class="glass-card about-grid fade-section" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
       <div style="border-radius: 16px; overflow: hidden; background: #ddd; aspect-ratio: 1/1;">
@@ -524,7 +517,6 @@
     </div>
   </section>
 
-  <!-- Initiatives -->
   <section id="initiatives" class="section-shell" style="margin: 0 auto;">
     <div class="section-grid-bg fade-section">
       <div style="text-align: center; margin-bottom: 2rem;">
@@ -535,7 +527,6 @@
       </div>
 
       <div class="card-grid">
-        <!-- Podcast -->
         <div class="glass-card fade-section">
           <span class="tag">Media</span>
           <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
@@ -553,7 +544,6 @@
           </div>
         </div>
 
-        <!-- WASH & MHM Hub -->
         <div class="glass-card fade-section">
           <span class="tag">Infrastructure</span>
           <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
@@ -585,7 +575,6 @@
              data-copy="WASH_NOTE"></p>
         </div>
 
-        <!-- Hospital App & Network -->
         <div class="glass-card fade-section">
           <span class="tag">Software</span>
           <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
@@ -607,7 +596,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" style="max-width: 600px; margin: 5rem auto; padding: 0 1.5rem;">
     <div class="glass-card fade-section" style="border-color: var(--brand-blue);">
       <h2 style="text-align: center; margin-bottom: 0.5rem;"
@@ -615,7 +603,6 @@
       <p style="text-align: center; margin-bottom: 2rem; color: #64748b;"
          data-copy="CONTACT_SUBTEXT"></p>
 
-      <!-- Formspree backend + AJAX -->
       <form id="contact-form" action="https://formspree.io/f/mkgdzdjw" method="POST">
         <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Name</label>
         <input type="text" name="name" required placeholder="Your name">
@@ -638,7 +625,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="dhaka-strip"></div>
     <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">
@@ -651,14 +637,12 @@
     </p>
   </footer>
 
-  <!-- Toast container -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Load copy.en.json
-    fetch('copy.en.json?v=5')
+    fetch('copy.en.json?v=6')
       .then(r => r.json())
       .then(copy => {
         document.querySelectorAll('[data-copy]').forEach(el => {
@@ -667,12 +651,10 @@
       })
       .catch(err => console.error('copy.en.json load error', err));
 
-    // Page fade-in
     window.addEventListener('load', () => {
       document.body.classList.add('page-loaded');
     });
 
-    // Section fade-ins
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -684,13 +666,12 @@
 
     document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
 
-    // Toast helper
     function showToast(message, type = 'success') {
       const toast = document.getElementById('toast');
       if (!toast) return;
 
       toast.textContent = message;
-      toast.className = 'toast'; // reset
+      toast.className = 'toast';
       toast.classList.add('toast-' + type, 'show');
 
       setTimeout(() => {
@@ -698,7 +679,6 @@
       }, 4000);
     }
 
-    // AJAX contact form (Formspree)
     const form = document.getElementById('contact-form');
     if (form) {
       form.addEventListener('submit', function (e) {
