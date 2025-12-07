@@ -613,5 +613,28 @@
         console.error('Error loading copy.en.json', err);
       });
   </script>
+<script>
+  // Set footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Load copy.en.json and inject into elements with data-copy
+  fetch('copy.en.json?v=2')
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (copy) {
+      document.querySelectorAll('[data-copy]').forEach(function (el) {
+        var key = el.getAttribute('data-copy');
+        if (copy[key]) {
+          // allow simple HTML like <br> in content
+          el.innerHTML = copy[key];
+        }
+      });
+    })
+    .catch(function (err) {
+      console.error('Error loading copy.en.json', err);
+    });
+</script>
+
 </body>
 </html>
