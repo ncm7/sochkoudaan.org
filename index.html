@@ -673,7 +673,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // bump the v number if you change copy.en.json again
-    fetch('copy.en.json?v=7')
+    fetch('copy.en.json?v=8')
       .then(r => r.json())
       .then(copy => {
         document.querySelectorAll('[data-copy]').forEach(el => {
