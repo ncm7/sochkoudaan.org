@@ -609,6 +609,23 @@
         </p>
       </div>
 
+      <!-- TRINKET PARTNERSHIP CARD -->
+      <div class="glass-card fade-section">
+        <span class="tag">Education</span>
+        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
+            data-copy="TRINKET_TITLE"></h3>
+        <p class="card-subtext" data-copy="TRINKET_BODY"></p>
+
+        <div class="card-footer-row">
+          <a href="https://trinket.io"
+             target="_blank"
+             class="btn-main"
+             style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            <i class="fa-solid fa-graduation-cap"></i> Visit Trinket.io
+          </a>
+        </div>
+      </div>
+
       <!-- SOCIAL ENTERPRISE / COMPANY CARD (NEW) -->
       <div class="glass-card fade-section">
         <span class="tag">Social Enterprise</span>
@@ -673,7 +690,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // bump the v number if you change copy.en.json again
-    fetch('copy.en.json?v=8')
+    fetch('copy.en.json?v=9')
       .then(r => r.json())
       .then(copy => {
         document.querySelectorAll('[data-copy]').forEach(el => {
