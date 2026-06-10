@@ -1,483 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sochko Udaan Chronicles</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Stories, projects, and gentle tools for the Nepali diaspora — built at the intersection of science, migration, and memory." />
+<meta charset="UTF-8" />
+<title>Sochko Udaan Chronicles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Stories, projects, and gentle tools for the Nepali diaspora — built at the intersection of science, migration, and memory." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --brand-blue: #4a8bc2;
+  --brand-red: #DC143C;
+  --navy: #0F172A;
+  --heading-color: #111827;
+  --bg-gradient: radial-gradient(circle at top left, #f0f9ff, #eef2ff);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  --max-width: 1100px;
+  --radius: 24px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--navy);
+  line-height: 1.7;
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+body.page-loaded { opacity: 1; }
+.devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+h2, h3 { color: var(--heading-color); }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet" />
+/* Header */
+header {
+  position: sticky;
+  top: 20px;
+  z-index: 500;
+  margin: 0 auto;
+  max-width: 95%;
+}
+.glass-nav {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 100%;
+  width: auto;
+  mix-blend-mode: multiply;
+  filter: contrast(1.1);
+}
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav a {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--brand-blue); }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+/* Hero */
+.hero {
+  padding: 6rem 1.5rem 4rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+.hero-content {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+  z-index: 10;
+  position: relative;
+}
+.hero-tagline {
+  color: #475569;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.4vw, 3.9rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--brand-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin-bottom: 2.3rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.plane-container {
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  animation: flyPlane 8s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+.plane-svg { width: 100%; height: 100%; fill: var(--brand-blue); }
+@keyframes flyPlane {
+  0%   { transform: translate(0, 0) rotate(15deg); opacity: 0; }
+  10%  { opacity: 0.8; }
+  100% { transform: translate(110vw, -200px) rotate(45deg); opacity: 0; }
+}
 
-  <style>
-    :root {
-      --brand-blue: #4a8bc2;
-      --brand-red: #DC143C;
-      --navy: #0F172A;
-      --heading-color: #111827; /* softer, modern heading color */
-      --bg-gradient: radial-gradient(circle at top left, #f0f9ff, #eef2ff);
+/* Buttons */
+.btn-main {
+  background: var(--brand-blue);
+  color: white;
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(74, 139, 194, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(74, 139, 194, 0.5);
+}
+.btn-ghost {
+  background: transparent;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 0.7rem 1.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--brand-blue);
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--navy);
+}
+.audio-bars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  height: 15px;
+}
+.bar {
+  width: 3px;
+  background: white;
+  border-radius: 2px;
+  animation: bounce 1s infinite ease-in-out;
+}
+.bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+.bar:nth-child(2) { height: 100%; animation-delay: 0.2s; }
+.bar:nth-child(3) { height: 50%; animation-delay: 0.3s; }
+@keyframes bounce {
+  0%, 100% { height: 40%; }
+  50%       { height: 100%; }
+}
 
-      --glass-bg: rgba(255, 255, 255, 0.88);
-      --glass-border: rgba(255, 255, 255, 0.7);
-      --glass-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+section { scroll-margin-top: 90px; }
+.section-shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.section-grid-bg {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 3rem 2rem;
+  margin-top: 3rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 2rem auto 0;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+  border-color: var(--brand-blue);
+}
+.tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.card-subtext {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+.card-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+.pill-status {
+  font-size: 0.8rem;
+  color: var(--brand-red);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.pill-status.blue { color: var(--brand-blue); }
 
-      --max-width: 1100px;
-      --radius: 24px;
-    }
+/* ── WASH card specific styles ── */
+.wash-card {
+  grid-column: 1 / -1; /* full width across the grid */
+  border-left: 4px solid var(--brand-blue);
+}
+.wash-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.wash-stat {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 1px solid #bae6fd;
+  border-radius: 14px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  min-width: 100px;
+  flex: 1;
+}
+.wash-stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  line-height: 1.1;
+}
+.wash-stat-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+}
+.wash-body-text {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.wash-body-text strong { color: var(--navy); }
+.wash-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--brand-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.wash-toggle-btn:hover { opacity: 0.75; }
+.wash-expanded {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+.wash-expanded.open { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wash-partners-row {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+.wash-partners-row strong { color: var(--navy); }
+.wash-district-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+.district-pill {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.district-pill i { color: var(--brand-blue); font-size: 0.7rem; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+input, textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.9);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+}
 
-    html { scroll-behavior: smooth; }
+footer {
+  background: var(--navy);
+  color: white;
+  margin-top: 5rem;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.dhaka-strip {
+  height: 12px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image:
+    repeating-linear-gradient(45deg, var(--brand-red) 25%, transparent 25%, transparent 75%, var(--brand-red) 75%, var(--brand-red)),
+    repeating-linear-gradient(45deg, var(--brand-red) 25%, #222 25%, #222 75%, var(--brand-red) 75%, var(--brand-red));
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  opacity: 0.9;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 320px;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0f172a;
+  color: #f9fafb;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.toast-success { background: #16a34a; }
+.toast-error   { background: #b91c1c; }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--navy);
-      line-height: 1.7;
-      overflow-x: hidden;
-
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    body.page-loaded {
-      opacity: 1;
-    }
-
-    .devanagari { font-family: 'Noto Sans Devanagari', sans-serif; }
-
-    .fade-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Global heading color */
-    h2, h3 {
-      color: var(--heading-color);
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 20px;
-      z-index: 500;
-      margin: 0 auto;
-      max-width: 95%;
-    }
-
-    .glass-nav {
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      border-radius: 50px;
-      box-shadow: var(--glass-shadow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1.5rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .logo-container {
-      height: 60px;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-img {
-      height: 100%;
-      width: auto;
-      mix-blend-mode: multiply;
-      filter: contrast(1.1);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: var(--brand-blue); }
-
-    /* Hero */
-    .hero {
-      padding: 6rem 1.5rem 4rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .hero-content {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-      z-index: 10;
-      position: relative;
-    }
-
-    .hero-tagline {
-      color: #475569;
-      font-size: 1rem;      /* bigger tagline */
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 0.85rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5.4vw, 3.9rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--brand-blue) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: #64748b;
-      margin-bottom: 2.3rem;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .plane-container {
-      position: absolute;
-      top: 20%;
-      left: -100px;
-      width: 60px;
-      height: 60px;
-      opacity: 0.6;
-      animation: flyPlane 8s ease-in-out infinite;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .plane-svg {
-      width: 100%;
-      height: 100%;
-      fill: var(--brand-blue);
-    }
-
-    @keyframes flyPlane {
-      0% { transform: translate(0, 0) rotate(15deg); opacity: 0; }
-      10% { opacity: 0.8; }
-      100% { transform: translate(110vw, -200px) rotate(45deg); opacity: 0; }
-    }
-
-    /* Buttons */
-    .btn-main {
-      background: var(--brand-blue);
-      color: white;
-      padding: 1rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 10px 25px rgba(74, 139, 194, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-main:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(74, 139, 194, 0.5);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.7rem 1.6rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: #475569;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, background 0.2s, color 0.2s;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--brand-blue);
-      background: rgba(148, 163, 184, 0.08);
-      color: var(--navy);
-    }
-
-    .audio-bars {
-      display: flex;
-      gap: 3px;
-      align-items: center;
-      height: 15px;
-    }
-    .bar {
-      width: 3px;
-      background: white;
-      border-radius: 2px;
-      animation: bounce 1s infinite ease-in-out;
-    }
-    .bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
-    .bar:nth-child(2) { height: 100%; animation-delay: 0.2s; }
-    .bar:nth-child(3) { height: 50%; animation-delay: 0.3s; }
-
-    @keyframes bounce {
-      0%, 100% { height: 40%; }
-      50% { height: 100%; }
-    }
-
-    section { scroll-margin-top: 90px; }
-
-    .section-shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-grid-bg {
-      background: var(--glass-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-radius: var(--radius);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      padding: 3rem 2rem;
-      margin-top: 3rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: var(--max-width);
-      margin: 2rem auto 0;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      padding: 2rem;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
-      border-color: var(--brand-blue);
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      color: var(--brand-blue);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .card-subtext {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .pill-status {
-      font-size: 0.8rem;
-      color: var(--brand-red);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .pill-status.blue {
-      color: var(--brand-blue);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.9);
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--brand-blue);
-    }
-
-    footer {
-      background: var(--navy);
-      color: white;
-      margin-top: 5rem;
-      padding: 4rem 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .dhaka-strip {
-      height: 12px;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image:
-        repeating-linear-gradient(45deg, var(--brand-red) 25%, transparent 25%, transparent 75%, var(--brand-red) 75%, var(--brand-red)),
-        repeating-linear-gradient(45deg, var(--brand-red) 25%, #222 25%, #222 75%, var(--brand-red) 75%, var(--brand-red));
-      background-position: 0 0, 10px 10px;
-      background-size: 20px 20px;
-      opacity: 0.9;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      max-width: 320px;
-      padding: 0.85rem 1rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #0f172a;
-      color: #f9fafb;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
-      opacity: 0;
-      transform: translateY(16px);
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 999;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .toast-success {
-      background: #16a34a;
-    }
-
-    .toast-error {
-      background: #b91c1c;
-    }
-
-    @media (max-width: 768px) {
-      .glass-nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        border-radius: 24px;
-      }
-      .hero { padding-top: 4rem; }
-      .glass-card.about-grid {
-        grid-template-columns: 1fr;
-      }
-      .section-grid-bg {
-        padding: 2.5rem 1.5rem;
-      }
-      .toast {
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-        border-radius: 16px;
-        justify-content: center;
-      }
-    }
-  </style>
+@media (max-width: 768px) {
+  .glass-nav { flex-direction: column; gap: 1rem; padding: 1rem; border-radius: 24px; }
+  .hero { padding-top: 4rem; }
+  .glass-card.about-grid { grid-template-columns: 1fr; }
+  .section-grid-bg { padding: 2.5rem 1.5rem; }
+  .toast { left: 16px; right: 16px; bottom: 16px; border-radius: 16px; justify-content: center; }
+  .wash-stat-number { font-size: 1.3rem; }
+}
+</style>
 </head>
 <body>
-  
-  <header>
-    <div class="glass-nav fade-section">
-      <div class="logo-container">
-        <img src="logo.jpg" alt="Sochko Udaan Logo" class="logo-img">
+
+<header>
+  <div class="glass-nav fade-section">
+    <div class="logo-container">
+      <img src="logo.jpg" alt="Sochko Udaan Logo" class="logo-img">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#initiatives">Initiations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="plane-container">
+    <svg class="plane-svg" viewBox="0 0 24 24">
+      <path d="M2 12l20-9-9 20-2-9-9-2zm12.5-3.5L5.5 11l4.5 1.5 6-6z"/>
+    </svg>
+  </div>
+  <div class="hero-content fade-section">
+    <div class="hero-tagline" data-copy="HERO_TAGLINE"></div>
+    <h1 data-copy="HERO_TITLE"></h1>
+    <p class="hero-subtitle" data-copy="HERO_SUBTITLE"></p>
+    <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
+       target="_blank"
+       class="btn-main">
+      <div class="audio-bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#initiatives">Initiations</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      Listen to the Podcast
+    </a>
+    <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
+      <i class="fa-brands fa-spotify" style="color:#1DB954;"></i>
+      New conversations on most Fridays, when life allows.
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="hero">
-    <div class="plane-container">
-      <svg class="plane-svg" viewBox="0 0 24 24">
-        <path d="M2 12l20-9-9 20-2-9-9-2zm12.5-3.5L5.5 11l4.5 1.5 6-6z"/>
-      </svg>
-    </div>
-
-    <div class="hero-content fade-section">
-      <div class="hero-tagline" data-copy="HERO_TAGLINE"></div>
-      <h1 data-copy="HERO_TITLE"></h1>
-      <p class="hero-subtitle" data-copy="HERO_SUBTITLE"></p>
-
-      <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
-         target="_blank"
-         class="btn-main">
-        <div class="audio-bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-        Listen to the Podcast
-      </a>
-
-      <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
-        <i class="fa-brands fa-spotify" style="color:#1DB954;"></i>
-        New conversations on most Fridays, when life allows.
-      </div>
-    </div>
-  </section>
-
- <section id="about" class="section-shell" style="margin: 3rem auto 0;">
+<section id="about" class="section-shell" style="margin: 3rem auto 0;">
   <div
     class="glass-card about-grid fade-section"
     style="
@@ -495,39 +501,25 @@
         style="width:100%; height:100%; object-fit: cover;"
       >
     </div>
-
     <div style="max-width: 36rem;">
       <h2
-        style="
-          font-size: 2.1rem;
-          margin-bottom: 1.4rem;
-        "
+        style="font-size: 2.1rem; margin-bottom: 1.4rem;"
         data-copy="ABOUT_HEADING"
       ></h2>
-
       <p
-        style="
-          margin-bottom: 1.25rem;
-          color: #475569;
-        "
+        style="margin-bottom: 1.25rem; color: #475569;"
         data-copy="ABOUT_PARAGRAPH_MAIN"
       ></p>
-
       <p
-        style="
-          font-size: 0.9rem;
-          color:#94a3b8;
-          margin-top: 0.75rem;
-        "
+        style="font-size: 0.9rem; color:#94a3b8; margin-top: 0.75rem;"
         data-copy="ABOUT_SIGNATURE"
       ></p>
     </div>
   </div>
 </section>
 
- <section id="initiatives" class="section-shell" style="margin: 0 auto;">
+<section id="initiatives" class="section-shell" style="margin: 0 auto;">
   <div class="section-grid-bg fade-section">
-    
     <div style="text-align: center; margin-bottom: 2rem;">
       <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;"
           data-copy="PROJECTS_SECTION_TITLE"></h2>
@@ -543,7 +535,6 @@
         <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
             data-copy="PODCAST_TITLE"></h3>
         <p class="card-subtext" data-copy="PODCAST_BODY"></p>
-
         <div class="card-footer-row">
           <a href="https://open.spotify.com/show/3KXIHe93G7KZqYdtE1MB0j?si=7029f6a9155a4730"
              class="btn-main"
@@ -556,28 +547,107 @@
         </div>
       </div>
 
-      <!-- INFRASTRUCTURE / WASH CARD -->
+      <!-- SOFTWARE CARD -->
       <div class="glass-card fade-section">
-        <span class="tag">Infrastructure</span>
+        <span class="tag">Software</span>
         <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-            data-copy="WASH_TITLE"></h3>
-        <p class="card-subtext" data-copy="WASH_BODY"></p>
+            data-copy="APP_TITLE"></h3>
+        <p class="card-subtext" data-copy="APP_BODY"></p>
+        <div class="card-footer-row">
+          <span class="pill-status blue">
+            <i class="fa-solid fa-code"></i>
+            In early design &amp; prototyping
+          </span>
+        </div>
+        <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;">
+          If you're a clinician, hospital admin, or student who wants to co-design this with us,
+          reach out through the contact form below.
+        </p>
+      </div>
 
-        <div class="card-footer-row" style="margin-bottom: 0.9rem;">
+      <!-- SOCIAL ENTERPRISE CARD -->
+      <div class="glass-card fade-section">
+        <span class="tag">Social Enterprise</span>
+        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
+            data-copy="COMPANY_TITLE"></h3>
+        <p class="card-subtext" data-copy="COMPANY_BODY"></p>
+        <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;"
+           data-copy="COMPANY_NOTE"></p>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           WASH PROJECT CARD — expanded full-width
+           ══════════════════════════════════════════ -->
+      <div class="glass-card wash-card fade-section">
+
+        <span class="tag">
+          <i class="fa-solid fa-droplet" style="margin-right:0.3rem;"></i>
+          Infrastructure · 2026
+        </span>
+
+        <h3 style="font-size: 1.55rem; margin-bottom: 0.6rem;"
+            data-copy="WASH_TITLE"></h3>
+
+        <!-- Impact stats -->
+        <div class="wash-stats-row">
+          <div class="wash-stat">
+            <div class="wash-stat-number" data-copy="WASH_STATS_GIRLS"></div>
+            <div class="wash-stat-label">Girls Reached</div>
+          </div>
+          <div class="wash-stat">
+            <div class="wash-stat-number" data-copy="WASH_STATS_STUDENTS"></div>
+            <div class="wash-stat-label">Total Students</div>
+          </div>
+          <div class="wash-stat">
+            <div class="wash-stat-number" data-copy="WASH_STATS_SCHOOLS"></div>
+            <div class="wash-stat-label">Partner Schools</div>
+          </div>
+          <div class="wash-stat">
+            <div class="wash-stat-number" data-copy="WASH_STATS_DISTRICTS"></div>
+            <div class="wash-stat-label">Districts</div>
+          </div>
+        </div>
+
+        <!-- Districts -->
+        <div class="wash-district-pills">
+          <span class="district-pill"><i class="fa-solid fa-location-dot"></i> Jhapa</span>
+          <span class="district-pill"><i class="fa-solid fa-location-dot"></i> Dhanusha</span>
+          <span class="district-pill"><i class="fa-solid fa-location-dot"></i> Ilam</span>
+          <span class="district-pill"><i class="fa-solid fa-location-dot"></i> Okhaldhunga</span>
+        </div>
+
+        <!-- Short intro always visible -->
+        <p class="wash-body-text">
+          Across rural Nepal, two silent crises play out inside school walls every day: contaminated drinking water and the absence of safe menstrual products that quietly push girls out of classrooms.
+          The WASH Project addresses both at once — solar-powered water filtration and menstrual hygiene infrastructure, installed at 5 schools, built to last, and designed to replicate.
+        </p>
+
+        <!-- Toggle for full detail -->
+        <button class="wash-toggle-btn" id="wash-toggle" aria-expanded="false">
+          <i class="fa-solid fa-chevron-down" id="wash-chevron"></i>
+          Read the full project overview
+        </button>
+
+        <div class="wash-expanded" id="wash-detail">
+          <p class="wash-body-text" data-copy="WASH_BODY"></p>
+        </div>
+
+        <!-- Status badge -->
+        <div class="card-footer-row" style="margin-bottom: 1rem;">
           <span class="pill-status">
             <i class="fa-solid fa-circle-notch fa-spin"></i>
-            Partner & site selection phase
+            Active — installation phase Jun–Jul 2026
           </span>
         </div>
 
+        <!-- Action buttons -->
         <div class="card-footer-row">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeHg3ciuGojSFGdbtixxSrw3bV2ksWAtQiusI3cS8D_Gd_s9Q/viewform"
              target="_blank"
              class="btn-main"
              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
-            School Interest Form
+            <i class="fa-solid fa-school"></i> School Interest Form
           </a>
-
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJkTjPhhP8sZeHlbjklYlcJW_7jEVIazODtx2hlsxELULpvw/viewform"
              target="_blank"
              class="btn-ghost">
@@ -585,160 +655,135 @@
           </a>
         </div>
 
-        <p style="margin-top: 1rem; font-size: 0.8rem; color:#94a3b8;"
+        <!-- Partners -->
+        <p class="wash-partners-row" data-copy="WASH_PARTNERS"></p>
+
+        <p style="margin-top: 0.6rem; font-size: 0.78rem; color:#94a3b8;"
            data-copy="WASH_NOTE"></p>
+
       </div>
-
-      <!-- SOFTWARE CARD -->
-      <div class="glass-card fade-section">
-        <span class="tag">Software</span>
-        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-            data-copy="APP_TITLE"></h3>
-        <p class="card-subtext" data-copy="APP_BODY"></p>
-
-        <div class="card-footer-row">
-          <span class="pill-status blue">
-            <i class="fa-solid fa-code"></i>
-            In early design & prototyping
-          </span>
-        </div>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;">
-          If you're a clinician, hospital admin, or student who wants to co-design this with us,
-          reach out through the contact form below.
-        </p>
-      </div>
-
-      <!-- SOCIAL ENTERPRISE / COMPANY CARD (NEW) -->
-      <div class="glass-card fade-section">
-        <span class="tag">Social Enterprise</span>
-        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"
-            data-copy="COMPANY_TITLE"></h3>
-
-        <p class="card-subtext" data-copy="COMPANY_BODY"></p>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color:#94a3b8;"
-           data-copy="COMPANY_NOTE"></p>
-      </div>
+      <!-- end WASH card -->
 
     </div>
   </div>
 </section>
 
+<section id="contact" style="max-width: 600px; margin: 5rem auto; padding: 0 1.5rem;">
+  <div class="glass-card fade-section" style="border-color: var(--brand-blue);">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;"
+        data-copy="CONTACT_HEADING"></h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: #64748b;"
+       data-copy="CONTACT_SUBTEXT"></p>
+    <form id="contact-form" action="https://formspree.io/f/mkgdzdjw" method="POST">
+      <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Name</label>
+      <input type="text" name="name" required placeholder="Your name">
+      <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Email</label>
+      <input type="email" name="email" required placeholder="you@example.com">
+      <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Message</label>
+      <textarea name="message" rows="5" required placeholder="Tell me a little about you, your journey, or the project you have in mind."></textarea>
+      <input type="hidden" name="_subject" value="New message from Sochko Udaan site">
+      <button type="submit" class="btn-main" style="width: 100%; justify-content: center;">
+        Send Message
+      </button>
+    </form>
+    <p style="margin-top: 1rem; font-size: 0.75rem; color:#94a3b8; text-align:center;"
+       data-copy="CONTACT_NOTE"></p>
+  </div>
+</section>
 
-  <section id="contact" style="max-width: 600px; margin: 5rem auto; padding: 0 1.5rem;">
-    <div class="glass-card fade-section" style="border-color: var(--brand-blue);">
-      <h2 style="text-align: center; margin-bottom: 0.5rem;"
-          data-copy="CONTACT_HEADING"></h2>
-      <p style="text-align: center; margin-bottom: 2rem; color: #64748b;"
-         data-copy="CONTACT_SUBTEXT"></p>
+<footer>
+  <div class="dhaka-strip"></div>
+  <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">
+    सोचको उडान
+  </h3>
+  <p style="opacity: 0.8; max-width: 500px; margin: 0 auto 2rem;"
+     data-copy="FOOTER_TAGLINE"></p>
+  <p style="font-size: 0.8rem; opacity: 0.6;">
+    © <span id="year"></span> Sochko Udaan Chronicles. All rights reserved.
+  </p>
+</footer>
 
-      <form id="contact-form" action="https://formspree.io/f/mkgdzdjw" method="POST">
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Name</label>
-        <input type="text" name="name" required placeholder="Your name">
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Email</label>
-        <input type="email" name="email" required placeholder="you@example.com">
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
 
-        <label style="font-size: 0.85rem; font-weight: 700; color: var(--navy);">Message</label>
-        <textarea name="message" rows="5" required placeholder="Tell me a little about you, your journey, or the project you have in mind."></textarea>
-
-        <input type="hidden" name="_subject" value="New message from Sochko Udaan site">
-
-        <button type="submit" class="btn-main" style="width: 100%; justify-content: center;">
-          Send Message
-        </button>
-      </form>
-
-      <p style="margin-top: 1rem; font-size: 0.75rem; color:#94a3b8; text-align:center;"
-         data-copy="CONTACT_NOTE"></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="dhaka-strip"></div>
-    <h3 class="devanagari" style="font-size: 1.8rem; margin-bottom: 1rem;">
-      सोचको उडान
-    </h3>
-    <p style="opacity: 0.8; max-width: 500px; margin: 0 auto 2rem;"
-       data-copy="FOOTER_TAGLINE"></p>
-    <p style="font-size: 0.8rem; opacity: 0.6;">
-      © <span id="year"></span> Sochko Udaan Chronicles. All rights reserved.
-    </p>
-  </footer>
-
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // bump the v number if you change copy.en.json again
-    fetch('copy.en.json?v=8')
-      .then(r => r.json())
-      .then(copy => {
-        document.querySelectorAll('[data-copy]').forEach(el => {
-          el.innerHTML = copy[el.dataset.copy] || "";
-        });
-      })
-      .catch(err => console.error('copy.en.json load error', err));
-
-    window.addEventListener('load', () => {
-      document.body.classList.add('page-loaded');
+// bump the v number if you change copy.en.json again
+fetch('copy.en.json?v=9')
+  .then(r => r.json())
+  .then(copy => {
+    document.querySelectorAll('[data-copy]').forEach(el => {
+      el.innerHTML = copy[el.dataset.copy] || "";
     });
+  })
+  .catch(err => console.error('copy.en.json load error', err));
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+window.addEventListener('load', () => {
+  document.body.classList.add('page-loaded');
+});
 
-    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
-
-    function showToast(message, type = 'success') {
-      const toast = document.getElementById('toast');
-      if (!toast) return;
-
-      toast.textContent = message;
-      toast.className = 'toast';
-      toast.classList.add('toast-' + type, 'show');
-
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 4000);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.1 });
 
-    const form = document.getElementById('contact-form');
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
 
-        const formData = new FormData(form);
-        const action = form.getAttribute('action');
+// WASH toggle
+const washToggle = document.getElementById('wash-toggle');
+const washDetail = document.getElementById('wash-detail');
+const washChevron = document.getElementById('wash-chevron');
+if (washToggle && washDetail) {
+  washToggle.addEventListener('click', () => {
+    const isOpen = washDetail.classList.toggle('open');
+    washToggle.setAttribute('aria-expanded', isOpen);
+    washToggle.innerHTML = isOpen
+      ? '<i class="fa-solid fa-chevron-up" id="wash-chevron"></i> Hide details'
+      : '<i class="fa-solid fa-chevron-down" id="wash-chevron"></i> Read the full project overview';
+  });
+}
 
-        fetch(action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-          if (response.ok) {
-            form.reset();
-            showToast('Thank you for reaching out. I will get back to you soon.', 'success');
-          } else {
-            return response.json().then(data => {
-              const msg = data && data.error ? data.error : 'Something went wrong. Please try again.';
-              showToast(msg, 'error');
-            });
-          }
-        })
-        .catch(() => {
-          showToast('Network error. Please check your connection and try again.', 'error');
+function showToast(message, type = 'success') {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.className = 'toast';
+  toast.classList.add('toast-' + type, 'show');
+  setTimeout(() => { toast.classList.remove('show'); }, 4000);
+}
+
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const action = form.getAttribute('action');
+    fetch(action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        showToast('Thank you for reaching out. I will get back to you soon.', 'success');
+      } else {
+        return response.json().then(data => {
+          const msg = data && data.error ? data.error : 'Something went wrong. Please try again.';
+          showToast(msg, 'error');
         });
-      });
-    }
-  </script>
+      }
+    })
+    .catch(() => {
+      showToast('Network error. Please check your connection and try again.', 'error');
+    });
+  });
+}
+</script>
+
 </body>
 </html>
