@@ -429,6 +429,140 @@ footer {
 .toast-success { background: #16a34a; }
 .toast-error   { background: #b91c1c; }
 
+/* ── TFE card ── */
+.tfe-card {
+  grid-column: 1 / -1;
+  padding: 0;
+  overflow: hidden;
+  border-left: 4px solid #0F172A;
+}
+.tfe-card-header {
+  background: #0F172A;
+  padding: 1.5rem 1.75rem 1.25rem;
+}
+.tfe-header-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.1rem;
+}
+.tfe-logo {
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.tfe-x-tag {
+  color: #64748b;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.tfe-role-label {
+  color: #64748b;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+.tfe-name {
+  color: #f8fafc;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 3px;
+  line-height: 1.2;
+}
+.tfe-role-sub {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.tfe-body {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.75;
+  padding: 1.25rem 1.75rem;
+  margin: 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.tfe-meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #f1f5f9;
+}
+.tfe-meta-cell { padding: 0.9rem 1.75rem; }
+.tfe-meta-border { border-right: 1px solid #f1f5f9; }
+.tfe-meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+.tfe-meta-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+.tfe-muted { color: #94a3b8; font-weight: 400; }
+.tfe-pills-section { padding: 1rem 1.75rem 0; }
+.tfe-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.tfe-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.tfe-pill {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tfe-pill i { color: var(--brand-blue); font-size: 0.75rem; }
+.tfe-stats-section { padding: 1rem 1.75rem; }
+.tfe-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.tfe-stat-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+}
+.tfe-stat-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 3px;
+}
+.tfe-stat-lbl {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+.tfe-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0 1.75rem 1.5rem;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .glass-nav { flex-direction: column; gap: 1rem; padding: 1rem; border-radius: 24px; }
   .hero { padding-top: 4rem; }
@@ -436,6 +570,9 @@ footer {
   .section-grid-bg { padding: 2.5rem 1.5rem; }
   .toast { left: 16px; right: 16px; bottom: 16px; border-radius: 16px; justify-content: center; }
   .wash-stat-number { font-size: 1.3rem; }
+  .tfe-stats-grid { grid-template-columns: 1fr 1fr; }
+  .tfe-meta-row { grid-template-columns: 1fr; }
+  .tfe-meta-border { border-right: none; border-bottom: 1px solid #f1f5f9; }
 }
 </style>
 </head>
@@ -620,7 +757,7 @@ footer {
         <!-- Short intro always visible -->
         <p class="wash-body-text">
           Across rural Nepal, two silent crises play out inside school walls every day: contaminated drinking water and the absence of safe menstrual products that quietly push girls out of classrooms.
-          The WASH Project addresses both at once — solar-powered water filtration and menstrual hygiene infrastructure, installed at 5 schools (pilot project), built to last, and designed to replicate.
+          The WASH Project addresses both at once — solar-powered water filtration and menstrual hygiene infrastructure, installed at 5 schools, built to last, and designed to replicate.
         </p>
 
         <!-- Toggle for full detail -->
@@ -662,7 +799,7 @@ footer {
 
         <!-- Partners -->
         <p class="wash-partners-row">
-          In partnership with:<strong>EWB Pulchowk Student Chapter</strong> · <strong>Pad2Go Nepal</strong>
+          In partnership with: <strong>Engineers Without Borders Madison</strong> · <strong>EWB Pulchowk Student Chapter</strong> · <strong>Pad2Go Nepal</strong>
         </p>
 
         <p style="margin-top: 0.6rem; font-size: 0.78rem; color:#94a3b8;"
@@ -670,6 +807,90 @@ footer {
 
       </div>
       <!-- end WASH card -->
+
+      <!-- ══════════════════════════════════════════
+           TFE PARTNERSHIP CARD
+           ══════════════════════════════════════════ -->
+      <div class="glass-card tfe-card fade-section">
+
+        <!-- Dark header band -->
+        <div class="tfe-card-header">
+          <div class="tfe-header-top">
+            <img src="https://trinketforeducation.org/Pictures/logo.png"
+                 alt="Trinket for Education logo"
+                 class="tfe-logo">
+            <span class="tfe-x-tag">× SochkoUdaan</span>
+          </div>
+          <p class="tfe-role-label">Advisory Partnership</p>
+          <h3 class="tfe-name">Neeraj Mishra</h3>
+          <p class="tfe-role-sub">Advisor · Trinket for Education</p>
+        </div>
+
+        <!-- Body -->
+        <p class="tfe-body">
+          Neeraj advises Trinket for Education as a founding partner and strategic voice — bringing the on-ground perspective of SochkoUdaan's infrastructure and education work in Nepal to TFE's mission of removing financial barriers to secondary schooling.
+        </p>
+
+        <!-- Two-column meta row -->
+        <div class="tfe-meta-row">
+          <div class="tfe-meta-cell tfe-meta-border">
+            <p class="tfe-meta-label">Role at TFE</p>
+            <p class="tfe-meta-value">Advisor <span class="tfe-muted">+</span> Institutional Partner</p>
+          </div>
+          <div class="tfe-meta-cell">
+            <p class="tfe-meta-label">Through</p>
+            <p class="tfe-meta-value">SochkoUdaan <span class="tfe-muted">Pvt. Ltd.</span></p>
+          </div>
+        </div>
+
+        <!-- Contribution pills -->
+        <div class="tfe-pills-section">
+          <p class="tfe-section-label">Areas of contribution</p>
+          <div class="tfe-pills">
+            <span class="tfe-pill"><i class="fa-solid fa-graduation-cap"></i> Education strategy</span>
+            <span class="tfe-pill"><i class="fa-solid fa-handshake"></i> Nepal community access</span>
+            <span class="tfe-pill"><i class="fa-solid fa-building"></i> Institutional partnerships</span>
+            <span class="tfe-pill"><i class="fa-solid fa-users"></i> Diaspora engagement</span>
+          </div>
+        </div>
+
+        <!-- Mission stats -->
+        <div class="tfe-stats-section">
+          <p class="tfe-section-label">TFE mission context</p>
+          <div class="tfe-stats-grid">
+            <div class="tfe-stat-box">
+              <div class="tfe-stat-num">839K+</div>
+              <div class="tfe-stat-lbl">students start grade 1 in Nepal each year</div>
+            </div>
+            <div class="tfe-stat-box">
+              <div class="tfe-stat-num">6,493</div>
+              <div class="tfe-stat-lbl">schools continue to secondary level</div>
+            </div>
+            <div class="tfe-stat-box">
+              <div class="tfe-stat-num">3</div>
+              <div class="tfe-stat-lbl">active TFE projects running in 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="tfe-links-row">
+          <a href="https://trinketforeducation.org/team/neeraj-mishra"
+             target="_blank"
+             class="btn-main"
+             style="padding: 0.55rem 1.1rem; font-size: 0.84rem; background: #0F172A; box-shadow: none;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View TFE profile
+          </a>
+          <a href="https://trinketforeducation.org"
+             target="_blank"
+             class="btn-ghost"
+             style="font-size: 0.84rem;">
+            <i class="fa-solid fa-globe"></i> trinketforeducation.org
+          </a>
+        </div>
+
+      </div>
+      <!-- end TFE card -->
 
     </div>
   </div>
