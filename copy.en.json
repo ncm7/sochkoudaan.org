@@ -2,31 +2,28 @@
   "HERO_TAGLINE": "सोचको उडान: Building bridges, one story at a time",
   "HERO_TITLE": "सोचको उडान: Inspiring the Nepali Diaspora",
   "HERO_SUBTITLE": "Join meaningful conversations, tools, and projects centered on the journeys of the Nepali diaspora.",
-
-  "ABOUT_HEADING": "Namaste, I’m Neeraj Mishra",
+  "ABOUT_HEADING": "Namaste, I'm Neeraj Mishra",
   "ABOUT_PARAGRAPH_MAIN": "I first came to the United States to study Biomedical Engineering, carrying a backpack, a few dreams, and a deep love for Nepal.<br><br>Today, I work as a biomedical engineer and quality professional, but my compass still points home.<br><br>सोचको उडान is my way of holding both worlds at once; it amplifies the voices of the Nepali diaspora, shares practical knowledge for students and professionals, and slowly builds projects that return care, dignity, and opportunity back to communities in Nepal.",
   "ABOUT_SIGNATURE": "Neeraj Mishra (Founder, सोचको उडान)",
-
   "PROJECTS_SECTION_TITLE": "Initiations",
   "PROJECTS_SECTION_SUBTEXT": "A collection of stories, tools, and projects in care for the Nepali diaspora and communities back home.",
-
   "PODCAST_TITLE": "सोचको उडान Podcast",
   "PODCAST_BODY": "Join us in listening to the journeys of the Nepali diaspora in the United States and beyond. From humble beginnings to soaring heights, these individuals have faced uncertainty, rebuilt themselves, and achieved remarkable things. Their stories are a testament to the resilience and quiet courage of Nepali people everywhere.",
-
   "APP_TITLE": "Essential App for Nepal",
   "APP_BODY": "Our team is designing a mobile application that makes booking hospital appointments in Nepal simpler and more transparent; this will help people access care more easily, even from remote locations.",
-
   "COMPANY_TITLE": "सोचको उडान प्रा. लि.; Registered in Nepal",
-  "COMPANY_BODY": "Sochko Udaan Pvt. Ltd. (सोचको उडान प्रा. लि.) is formally registered as a private limited company in Nepal under the Companies Act 2063; our registered office is in Kathmandu. The company’s objectives span media, education, technology, and digital services that support Nepali communities at home and across the diaspora.",
+  "COMPANY_BODY": "Sochko Udaan Pvt. Ltd. (सोचको उडान प्रा. लि.) is formally registered as a private limited company in Nepal under the Companies Act 2063; our registered office is in Kathmandu. The company's objectives span media, education, technology, and digital services that support Nepali communities at home and across the diaspora.",
   "COMPANY_NOTE": "This legal entity holds the long-term work under the Sochko Udaan umbrella; from podcasts and student tools to health, WASH, and digital products; so impact projects can grow with proper governance, accountability, and partnerships.",
-
-  "WASH_TITLE": "Solar Powered WASH & Menstrual Hygiene Hub",
-  "WASH_BODY": "A school based water and hygiene hub for Nepal: clean drinking water, safe menstrual products, and dignified restrooms designed with girls at the centre. Built in partnership with local schools, engineers, and community leaders.",
+  "WASH_TITLE": "WASH Project 2026 — Clean Water & Menstrual Hygiene for Schools",
+  "WASH_BODY": "Across rural Nepal, two silent crises play out inside school walls every day: contaminated drinking water and the absence of safe menstrual products that quietly push girls out of classrooms. The WASH Project addresses both at once.<br><br>Working across <strong>5 partner schools in 4 districts</strong> — Jhapa, Dhanusha, Ilam, and Okhaldhunga — we install custom-specified <strong>solar-powered water filtration systems</strong> tailored to each school's actual contamination profile, determined through government laboratory testing. Schools with arsenic contamination receive coagulation and activated alumina treatment. Schools with microbial risk receive biosand filtration with UV disinfection.<br><br>Alongside each water installation, <strong>Pad2Go Nepal</strong> supplies a 50-pad capacity manual vending machine and eco-friendly incinerator in girls' washrooms, restocked at below-market rates. Structured menstrual health awareness sessions accompany every visit — delivered in Nepali, inclusive of all students and teachers.<br><br>The project directly reaches <strong>887+ adolescent girls</strong> and <strong>2,399+ total students</strong> in 2026, with post-installation water testing in October and a model designed from the outset to be documented, costed, and replicated.",
+  "WASH_PARTNERS": "In partnership with: <strong>Engineers Without Borders Madison</strong> · <strong>EWB Pulchowk Student Chapter</strong> · <strong>Pad2Go Nepal</strong>",
   "WASH_NOTE": "If you represent a public school in Nepal and would like to explore a pilot, these forms help us understand your context before any promises are made.",
-
-  "CONTACT_HEADING": "Let’s get connected",
+  "WASH_STATS_GIRLS": "887+",
+  "WASH_STATS_STUDENTS": "2,399+",
+  "WASH_STATS_SCHOOLS": "5",
+  "WASH_STATS_DISTRICTS": "4",
+  "CONTACT_HEADING": "Let's get connected",
   "CONTACT_SUBTEXT": "Use the form below to get in touch with us; share your story, your idea, or simply say hello.",
   "CONTACT_NOTE": "Note: this sends as a simple email. For school pilots, please use the project forms above first.",
-
   "FOOTER_TAGLINE": "Carrying origins without being confined by them."
 }
