@@ -509,7 +509,7 @@ footer {
   margin: 0;
 }
 .tfe-muted { color: #94a3b8; font-weight: 400; }
-.tfe-pills-section { padding: 1rem 1.75rem 0; }
+.tfe-pills-section { padding: 1rem 1.75rem 1.25rem; }
 .tfe-section-label {
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -574,34 +574,28 @@ footer {
   /* TFE card mobile fixes */
   .tfe-card-header { padding: 1.25rem; }
   .tfe-body { padding: 1rem 1.25rem; }
-  .tfe-pills-section { padding: 1rem 1.25rem 0; }
+  .tfe-pills-section { padding: 1rem 1.25rem 1.25rem; }
   .tfe-stats-section { padding: 1rem 1.25rem; }
   .tfe-links-row { padding: 0 1.25rem 1.25rem; flex-direction: column; align-items: stretch; }
   .tfe-links-row .btn-main,
   .tfe-links-row .btn-ghost { justify-content: center; width: 100%; }
 
-  /* stats: 2 equal columns, "3" gets its own full row */
-  .tfe-stats-grid {
-    grid-template-columns: 1fr 1fr;
+  /* about card mobile: stack photo above text */
+  .about-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1.75rem 1.5rem !important;
   }
-  .tfe-stat-box:last-child {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
+  .about-photo {
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
   }
-  .tfe-stat-box:last-child .tfe-stat-num {
-    font-size: 1.6rem;
-    margin-bottom: 0;
-    white-space: nowrap;
-  }
-  .tfe-stat-box:last-child .tfe-stat-lbl { font-size: 0.82rem; }
-
-  /* meta row: stack vertically */
-  .tfe-meta-row { grid-template-columns: 1fr; }
-  .tfe-meta-border { border-right: none; border-bottom: 1px solid #f1f5f9; }
-  .tfe-meta-cell { padding: 0.75rem 1.25rem; }
+  .about-inner h2 { font-size: 1.5rem !important; margin-bottom: 0.9rem !important; text-align: center; }
+  .about-inner p { font-size: 0.9rem !important; }
+  .about-inner > div:last-child { text-align: left; }
 }
 </style>
 </head>
@@ -659,8 +653,9 @@ footer {
       align-items: center;
       padding: 2.75rem 3rem;
     "
+    class="about-inner"
   >
-    <div style="border-radius: 24px; overflow: hidden; background: #ddd; aspect-ratio: 1/1;">
+    <div class="about-photo" style="border-radius: 24px; overflow: hidden; background: #ddd; aspect-ratio: 1/1;">
       <img
         src="neeraj.jpg"
         alt="Neeraj Mishra"
@@ -880,25 +875,6 @@ footer {
             <span class="tfe-pill"><i class="fa-solid fa-handshake"></i> Nepal community access</span>
             <span class="tfe-pill"><i class="fa-solid fa-building"></i> Institutional partnerships</span>
             <span class="tfe-pill"><i class="fa-solid fa-users"></i> Diaspora engagement</span>
-          </div>
-        </div>
-
-        <!-- Mission stats -->
-        <div class="tfe-stats-section">
-          <p class="tfe-section-label">TFE mission context</p>
-          <div class="tfe-stats-grid">
-            <div class="tfe-stat-box">
-              <div class="tfe-stat-num">839K+</div>
-              <div class="tfe-stat-lbl">students start grade 1 in Nepal each year</div>
-            </div>
-            <div class="tfe-stat-box">
-              <div class="tfe-stat-num">6,493</div>
-              <div class="tfe-stat-lbl">schools continue to secondary level</div>
-            </div>
-            <div class="tfe-stat-box">
-              <div class="tfe-stat-num">3</div>
-              <div class="tfe-stat-lbl">active TFE projects running in 2026</div>
-            </div>
           </div>
         </div>
 
