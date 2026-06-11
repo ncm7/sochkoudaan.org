@@ -570,9 +570,38 @@ footer {
   .section-grid-bg { padding: 2.5rem 1.5rem; }
   .toast { left: 16px; right: 16px; bottom: 16px; border-radius: 16px; justify-content: center; }
   .wash-stat-number { font-size: 1.3rem; }
-  .tfe-stats-grid { grid-template-columns: 1fr 1fr; }
+
+  /* TFE card mobile fixes */
+  .tfe-card-header { padding: 1.25rem; }
+  .tfe-body { padding: 1rem 1.25rem; }
+  .tfe-pills-section { padding: 1rem 1.25rem 0; }
+  .tfe-stats-section { padding: 1rem 1.25rem; }
+  .tfe-links-row { padding: 0 1.25rem 1.25rem; flex-direction: column; align-items: stretch; }
+  .tfe-links-row .btn-main,
+  .tfe-links-row .btn-ghost { justify-content: center; width: 100%; }
+
+  /* stats: 2 equal columns, "3" gets its own full row */
+  .tfe-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tfe-stat-box:last-child {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .tfe-stat-box:last-child .tfe-stat-num {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .tfe-stat-box:last-child .tfe-stat-lbl { font-size: 0.82rem; }
+
+  /* meta row: stack vertically */
   .tfe-meta-row { grid-template-columns: 1fr; }
   .tfe-meta-border { border-right: none; border-bottom: 1px solid #f1f5f9; }
+  .tfe-meta-cell { padding: 0.75rem 1.25rem; }
 }
 </style>
 </head>
@@ -828,7 +857,7 @@ footer {
 
         <!-- Body -->
         <p class="tfe-body">
-         Neeraj advises Trinket for Education, bringing on-the-ground perspectives from SochkoUdaan’s infrastructure and educational awareness work in Nepal to support TFE’s mission of removing financial barriers to secondary schooling and promoting practical, high-quality education tailored to Nepal’s needs.
+          Neeraj advises Trinket for Education as a founding partner and strategic voice — bringing the on-ground perspective of SochkoUdaan's infrastructure and education work in Nepal to TFE's mission of removing financial barriers to secondary schooling.
         </p>
 
         <!-- Two-column meta row -->
